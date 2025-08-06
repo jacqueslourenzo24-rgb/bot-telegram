@@ -9,10 +9,13 @@ steps:
     --no-promote
   secretEnv: ['TELEGRAM_BOT_TOKEN']
 
+options:
+  logging: CLOUD_LOGGING_ONLY  # Esta linha resolve o erro
+
 substitutions:
-  _PROJECT_ID: bot-telegram-468202  # Substitua pelo seu ID de projeto
+  _PROJECT_ID: bot-telegram-468202
 
 availableSecrets:
   secretManager:
-  - versionName: projects/seu-projeto-id/secrets/TELEGRAM_BOT_TOKEN/versions/latest
+  - versionName: projects/bot-telegram-468202/secrets/TELEGRAM_BOT_TOKEN/versions/latest
     env: 'TELEGRAM_BOT_TOKEN'
