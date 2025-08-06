@@ -10,7 +10,7 @@ steps:
   secretEnv: ['TELEGRAM_BOT_TOKEN']
 
 substitutions:
-  _PROJECT_ID: seu-projeto-id  # Substitua pelo seu ID de projeto
+  _PROJECT_ID: bot-telegram-468202  # Substitua pelo seu ID de projeto
 
 availableSecrets:
   secretManager:
