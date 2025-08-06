@@ -1,0 +1,18 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud app deploy --quiet --project=${_PROJECT_ID} \
+    --version=${SHORT_SHA} \
+    --no-promote
+  secretEnv: ['TELEGRAM_BOT_TOKEN']
+
+substitutions:
+  _PROJECT_ID: seu-projeto-id  # Substitua pelo seu ID de projeto
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/seu-projeto-id/secrets/TELEGRAM_BOT_TOKEN/versions/latest
+    env: 'TELEGRAM_BOT_TOKEN'
