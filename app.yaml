@@ -1,0 +1,6 @@
+runtime: php81
+service: telegram-bot
+
+env_variables:
+  TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+  GOOGLE_CLOUD_PROJECT: ${PROJECT_ID}
