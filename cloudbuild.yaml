@@ -7,19 +7,19 @@ steps:
     echo "Iniciando deploy..."
     gcloud app deploy app.yaml --quiet --project=${_PROJECT_ID} \
     --version=${SHORT_SHA} \
-    --no-promote \
-    --verbosity=debug
+    --no-promote
     echo "Deploy concluído"
   secretEnv: ['TELEGRAM_BOT_TOKEN']
   id: 'deploy'
-  waitFor: ['-']
 
-timeout: 1200s  # Aumenta timeout para 20 minutos
-
-substitutions:
-  _PROJECT_ID: 'bot-telegram-468202'  # Substitua pelo seu ID real
+options:
+  logging: CLOUD_LOGGING_ONLY  # Solução principal para o erro
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET  # Solução alternativa
 
 availableSecrets:
   secretManager:
   - versionName: projects/${_PROJECT_ID}/secrets/TELEGRAM_BOT_TOKEN/versions/latest
     env: 'TELEGRAM_BOT_TOKEN'
+
+substitutions:
+  _PROJECT_ID: 'bot-telegram-468202'  # Substitua pelo seu ID real
