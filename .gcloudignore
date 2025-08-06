@@ -1,0 +1,5 @@
+# Ignora arquivos desnecessários
+.git
+.gitignore
+README.md
+vendor/
